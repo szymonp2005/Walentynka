@@ -18,8 +18,8 @@ const SuccessCard: React.FC = () => {
         transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
         className="flex justify-center mb-6"
       >
-        <div className="p-6 bg-white/20 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.3)] border border-white/40">
-          <HeartHandshake className="w-16 h-16 text-rose-50" />
+        <div className="relative w-40 h-40 rounded-full border-4 border-white/40 shadow-[0_0_30px_rgba(255,255,255,0.3)] overflow-hidden">
+          <img src="/us.jpg" alt="Us" className="w-full h-full object-cover" />
         </div>
       </motion.div>
 
