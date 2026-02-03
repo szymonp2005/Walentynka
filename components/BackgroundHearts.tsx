@@ -10,10 +10,10 @@ const BackgroundHearts: React.FC = () => {
     const newHearts: HeartParticle[] = Array.from({ length: 30 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100, // percentage
-      y: 110, // start below screen
+      y: 110, // start below screen (unused in visual, logic handled by negative delay)
       size: Math.random() * 40 + 10,
       duration: Math.random() * 20 + 10,
-      delay: Math.random() * 10,
+      delay: -Math.random() * 30, // Negative delay to start mid-animation (instantly visible)
       rotation: Math.random() * 360,
     }));
     setHearts(newHearts);
@@ -24,16 +24,16 @@ const BackgroundHearts: React.FC = () => {
       {hearts.map((heart) => (
         <motion.div
           key={heart.id}
-          initial={{ 
-            y: "110vh", 
-            x: `${heart.x}vw`, 
-            opacity: 0, 
-            rotate: heart.rotation 
+          initial={{
+            y: "110vh",
+            x: `${heart.x}vw`,
+            opacity: 0,
+            rotate: heart.rotation
           }}
-          animate={{ 
-            y: "-20vh", 
-            opacity: [0, 0.4, 0], 
-            rotate: heart.rotation + 360 
+          animate={{
+            y: "-20vh",
+            opacity: [0, 0.4, 0],
+            rotate: heart.rotation + 360
           }}
           transition={{
             duration: heart.duration,
